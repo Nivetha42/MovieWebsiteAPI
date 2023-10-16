@@ -1,0 +1,59 @@
+
+<%- include("partials/header.ejs")  %>
+<div class="searchbar">
+    <div class="innerdiv">
+        <div><form>
+    <input type="text"  placeholder="Search Movies and TV Series" class="input" name="find" />
+   <input type="submit" class="signin search" formmethod="post"  formaction="/search" />
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+    <div class="type2">
+        
+        <div>
+            <h1 class="convh1">
+                Search Results</h1>
+                <div class="scroll ">
+                   
+                    <% for(var i=0;i<res2.length;i++){%>
+                        <% var imgVal="https://image.tmdb.org/t/p/w500/";%>
+                        <% imgVal+=res2[i].poster_path%>
+                    <div class="test">
+                    <div style="position:relative" >
+                        <div class="item ">
+                            <%if(res2[i].poster_path){%>
+                            <img src=<%=imgVal%>></img>
+                            <%}else{%>
+                                <img src="./alt-img.jpg"></img>
+                            <%}%>
+                            <div class="toggle-flex" style="padding: 5px;">
+                                <%if(res2[i].original_title){%>
+                                <p class="tit"><%=res2[i].original_title%></p>
+                                <%}else{%>
+                                    <p class="tit"><%=res2[i].name%></p>
+                                    <%}%>
+                                    <%if(res2[i].vote_average){%>
+                                    <div class="rat"><%=res2[i].vote_average %></div>
+                                    <%}%>
+                            </div>
+                         </div>
+                    <p class="def "><%=res2[i].overview%></p>
+                   
+                    </div>
+                 </div>
+    
+                 <%}%>
+                
+                </div>
+        </div>
+        
+    </form> 
+    </div>
+ 
+    <%- include("partials/footer.ejs")  %>

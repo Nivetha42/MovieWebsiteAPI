@@ -1,0 +1,111 @@
+
+<%- include("partials/header.ejs")  %>
+
+<div class="searchbar">
+    <div class="innerdiv">
+        <div><form>
+    <input type="text"  placeholder="Search Movies and TV Series" class="input" name="find" />
+   <input type="submit" class="signin search" formmethod="post"  formaction="/search" />
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+    <div class="type2">
+        <div class="makeinline">
+       <h1 class="heading ">Trending</h1> 
+       <div class="toggle-flex" id="change-flex">
+       <div class="toggle">
+        <input type="submit" class="btn backred" value="Today" id="today" formmethod="get" formaction="/"/>
+        <input type="submit" class="btn btn2"  value="This Week"     id="thisWeek" formmethod="get" formaction="/week"/>
+       </div>
+      
+        </div>
+        </div>
+        <div>
+            <div class="scroll ">
+                <% for(var i=0;i<res1.length;i++){%>
+                    <% var imgVal="https://image.tmdb.org/t/p/w500/";%>
+                    <% imgVal+=res1[i].poster_path%>
+                <div class="test">
+                <div style="position:relative" >
+                    <div class="item ">
+                        <img src=<%=imgVal%>></img>
+                        <div class="toggle-flex" style="padding: 5px;">
+                            <%if(res1[i].original_title){%>
+                            <p class="tit"><%=res1[i].original_title%></p>
+                            <%}else{%>
+                            <p class="tit"><%=res1[i].name%></p>
+                            <%}%>
+                            <div class="rat"><%=  Math.round(res1[i].vote_average * 100) / 100 %></div>
+                        </div>
+                     </div>
+                <p class="def "><%=res1[i].overview%></p>
+                    
+                </div>
+             </div>
+
+             <%}%>
+            
+            </div>
+          
+           </div>
+        <div>
+            <h1 class="convh1">
+                Popular Movies</h1>
+                <div class="scroll ">
+                   
+                    <% for(var i=0;i<res2.length;i++){%>
+                        <% var imgVal="https://image.tmdb.org/t/p/w500/";%>
+                        <% imgVal+=res2[i].poster_path%>
+                    <div class="test">
+                    <div style="position:relative" >
+                        <div class="item ">
+                            <img src=<%=imgVal%>></img>
+                            <div class="toggle-flex" style="padding: 5px;">
+                                <p class="tit"><%=res2[i].original_title%></p>
+                                <div class="rat"><%=res2[i].vote_average%></div>
+                            </div>
+                         </div>
+                    <p class="def "><%=res2[i].overview%></p>
+                   
+                    </div>
+                 </div>
+    
+                 <%}%>
+                
+                </div>
+        </div>
+        <div>
+            <h1 class="convh1" >
+                 Popular TV Shows </h1>
+                 <div class="scroll ">
+                    <% for(var i=0;i<res3.length;i++){%>
+                        <% var imgVal="https://image.tmdb.org/t/p/w500/";%>
+                        <% imgVal+=res3[i].poster_path%>
+                    <div class="test">
+                    <div style="position:relative" >
+                        <div class="item ">
+                            <img src=<%=imgVal%>></img>
+                            <div class="toggle-flex" style="padding: 5px;">
+                                <p class="tit"><%=res3[i].original_name%></p>
+                                <div class="rat"><%=res3[i].vote_average%></div>
+                            </div>
+                         </div>
+                    <p class="def "><%=res3[i].overview%></p>
+                   
+                    </div>
+                 </div>
+                 
+                 <%}%>
+                
+                </div>
+        </div>
+    </form> 
+    </div>
+ 
+    <%- include("partials/footer.ejs")  %>
