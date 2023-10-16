@@ -62,7 +62,7 @@ span{
     font-size: 13px;
     font-weight: bold;
     background-color: rgba(22, 21, 21, 0.572);
-    color:#F3FDE8;
+    color:white;
     border-radius: 30px;
     width:130px;
     height:40px;
@@ -358,7 +358,7 @@ letter-spacing: 2px;
 }
 .toggle
 {
-width: 100px;
+width: 120px;
 height: 21px;
 margin-top: 20px;
 
